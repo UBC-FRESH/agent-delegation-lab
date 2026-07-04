@@ -28,6 +28,8 @@ Tasks:
 
 Status: active.
 
+Draft PR: #3
+
 Goal: test whether local Ollama worker agents can grind through a long,
 complex PDF-derived text corpus and produce a useful structured metadata index
 at much lower paid-supervisor token cost.

@@ -28,3 +28,4 @@ Entries are append-only, newest entries last.
   runtime paths without committing raw text.
 - Recorded the first substrate statistics: 105811 extracted words, 723498
   extracted characters, and 3 effectively empty pages.
+- Opened draft PR #3 as the P1 review surface without close wording.
