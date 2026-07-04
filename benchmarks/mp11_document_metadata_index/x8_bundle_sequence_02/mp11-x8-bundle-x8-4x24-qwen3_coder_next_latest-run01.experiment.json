@@ -1,0 +1,142 @@
+{
+  "record_id": "mp11-x8-bundle-x8-4x24-qwen3_coder_next_latest-run01",
+  "schema_version": 1,
+  "generated_utc": "2026-07-04T21:21:10Z",
+  "experiment": {
+    "experiment_id": "mp11-x8-bundle-x8-4x24-qwen3_coder_next_latest-run01",
+    "series_id": "mp11-document-structure-x8-bundle-sequence-02",
+    "project": "agent-delegation-lab",
+    "phase": "p1"
+  },
+  "task": {
+    "task_id": "mp11-x8-bundle-x8-4x24",
+    "task_family": "long-document-structure-pass",
+    "scale_factor": 8,
+    "input_pages": 96,
+    "input_words": 22332,
+    "input_characters": 153798,
+    "packaging_strategy": "x8-4x24",
+    "part_count": 4
+  },
+  "model": {
+    "model_id": "qwen3-coder-next:latest",
+    "provider": "local-ollama",
+    "cash_cost_per_token_usd": 0
+  },
+  "protocol": {
+    "authority_level": "L0",
+    "timeout_seconds": 7200,
+    "audit_strategy": "not-yet-audited",
+    "ticket_template": "mp11-fixed-x8-bundle-jsonl"
+  },
+  "outcome": {
+    "status": "completed-with-salvageable-model-failures",
+    "records_produced": 64,
+    "accepted_records": 0,
+    "repairable_records": 0,
+    "rejected_records": 0,
+    "needs_review_records": 64,
+    "object_type_counts": {
+      "acronym": 1,
+      "assumption": 12,
+      "claim": 9,
+      "component_boundary": 3,
+      "cross_reference": 4,
+      "figure": 10,
+      "heading": 18,
+      "table": 7
+    },
+    "parse_errors": [],
+    "part_summaries": [
+      {
+        "part_id": "part01",
+        "task_id": "mp11-x8-4x24-part01",
+        "page_range": "46-69",
+        "input_pages": 24,
+        "input_words": 4255,
+        "worker_input_tokens": 12830,
+        "worker_output_tokens": 4583,
+        "records_produced": 18,
+        "status": "completed-parseable",
+        "output_shape": "jsonl",
+        "runtime_eval_summary": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part01\\eval\\summary.json",
+        "runtime_result_file": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part01\\eval\\qwen3_coder_next_latest_run01.md"
+      },
+      {
+        "part_id": "part02",
+        "task_id": "mp11-x8-4x24-part02",
+        "page_range": "70-93",
+        "input_pages": 24,
+        "input_words": 7248,
+        "worker_input_tokens": 17191,
+        "worker_output_tokens": 3092,
+        "records_produced": 12,
+        "status": "model-call-failure-with-parseable-output",
+        "output_shape": "jsonl",
+        "runtime_eval_summary": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part02\\eval\\summary.json",
+        "runtime_result_file": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part02\\eval\\qwen3_coder_next_latest_run01.md"
+      },
+      {
+        "part_id": "part03",
+        "task_id": "mp11-x8-4x24-part03",
+        "page_range": "94-117",
+        "input_pages": 24,
+        "input_words": 5416,
+        "worker_input_tokens": 14547,
+        "worker_output_tokens": 5522,
+        "records_produced": 22,
+        "status": "completed-parseable",
+        "output_shape": "jsonl",
+        "runtime_eval_summary": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part03\\eval\\summary.json",
+        "runtime_result_file": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part03\\eval\\qwen3_coder_next_latest_run01.md"
+      },
+      {
+        "part_id": "part04",
+        "task_id": "mp11-x8-4x24-part04",
+        "page_range": "118-141",
+        "input_pages": 24,
+        "input_words": 5413,
+        "worker_input_tokens": 14751,
+        "worker_output_tokens": 3116,
+        "records_produced": 12,
+        "status": "completed-parseable",
+        "output_shape": "jsonl",
+        "runtime_eval_summary": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part04\\eval\\summary.json",
+        "runtime_result_file": "runtime\\mp11_document_metadata_index\\x8_bundle_sequence_02\\x8-4x24\\part04\\eval\\qwen3_coder_next_latest_run01.md"
+      }
+    ],
+    "worker_model_mismatches": 0,
+    "source_sha_mismatches": 2,
+    "duplicate_record_ids": 0,
+    "scale_behavior": "high-coverage-candidates"
+  },
+  "economics": {
+    "economics_status": "worker-only-scale-signal",
+    "worker_input_tokens": 59319,
+    "worker_output_tokens": 16313,
+    "worker_cost_usd": 0,
+    "supervisor_cost_usd": 0.0,
+    "direct_baseline_cost_usd": 1.228648,
+    "direct_baseline_cost_source": "same fixed x8 page definition as scale_sequence_01; extrapolated from the measured 12-page direct-supervisor baseline",
+    "net_savings_usd": 1.228648,
+    "net_savings_status": "not-claimed-until-supervisor-audit-cost-is-added",
+    "derived_metrics": {
+      "records_per_1000_worker_input_tokens": 1.078912,
+      "records_per_1000_words": 2.865843,
+      "worker_input_tokens_per_word": 2.656233,
+      "worker_output_tokens_per_record": 254.890625,
+      "records_per_page": 0.666667
+    }
+  },
+  "links": {
+    "source_summary": "benchmarks\\mp11_document_metadata_index\\x8_bundle_sequence_02\\summary.json"
+  },
+  "public_safety": {
+    "raw_inputs_excluded": true,
+    "raw_outputs_excluded": true,
+    "raw_traces_excluded": true,
+    "provider_urls_excluded": true,
+    "headers_excluded": true,
+    "personal_paths_excluded": true
+  }
+}

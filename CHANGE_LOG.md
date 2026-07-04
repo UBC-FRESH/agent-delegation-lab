@@ -77,3 +77,20 @@ Entries are append-only, newest entries last.
   setup, ticket build, worker orchestration, output summarization, and audit
   interpretation, excluding separate Agent Workbench fixture implementation
   cost.
+
+## 2026-07-04 - Ran P1 fixed-x8 bundle packaging iteration
+
+- Added fixed-x8 bundled ticket generation for the same MP11 pages 46-141 used
+  by the prior x8 single-ticket run.
+- Tested `x8-2x48` and `x8-4x24` packaging with `qwen3-coder-next:latest` and
+  `gpt-oss:20b` after the Ollama keep-alive restart.
+- Reused the existing `$1.228648` direct-supervisor baseline because the input
+  definition did not change.
+- Observed materially higher candidate yield than the prior x8 single-ticket
+  run: 48-70 bundle records versus 27 single-ticket records.
+- Observed that `gpt-oss:20b` produced useful candidate density but had a
+  format issue in the `x8-2x48` first part, while `qwen3-coder-next:latest`
+  had one salvageable model-call failure in the `x8-4x24` second part.
+- Measured benchmark-operation supervisor overhead at `$0.632602`, which is
+  `$0.596046` below the reused direct-supervisor baseline before source-level
+  audit/repair allocation.

@@ -67,6 +67,8 @@ Planned tasks:
         lower-cost audit protocol.
   - [x] Record a structured x2/x4/x8/x16 scale-sequence observation set for
         future tuning and guardrail design.
+  - [x] Run fixed-x8 bundled packaging tests with `qwen3-coder-next:latest`
+        and `gpt-oss:20b`.
   - [ ] Allocate supervisor audit/repair cost per scale run before claiming
         final benefit-cost ratios.
 
