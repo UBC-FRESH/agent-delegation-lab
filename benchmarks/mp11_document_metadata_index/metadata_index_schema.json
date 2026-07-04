@@ -1,0 +1,47 @@
+{
+  "schema_id": "mp11-document-metadata-index-v0",
+  "required_fields": [
+    "record_id",
+    "source_package_id",
+    "source_sha256",
+    "chunk_id",
+    "pdf_page",
+    "document_component",
+    "section_path",
+    "object_type",
+    "title",
+    "summary",
+    "confidence",
+    "worker_model",
+    "review_status"
+  ],
+  "object_types": [
+    "heading",
+    "table",
+    "figure",
+    "map",
+    "appendix",
+    "glossary_item",
+    "claim",
+    "assumption",
+    "sensitivity",
+    "acronym",
+    "citation",
+    "cross_reference",
+    "other"
+  ],
+  "review_statuses": [
+    "raw_worker_candidate",
+    "sample_verified",
+    "needs_review",
+    "rejected",
+    "accepted_metadata_index"
+  ],
+  "public_safety": {
+    "raw_pdf_tracked": false,
+    "raw_text_tracked": false,
+    "raw_transcripts_tracked": false,
+    "provider_credentials_tracked": false
+  }
+}
+
