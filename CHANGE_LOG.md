@@ -40,8 +40,25 @@ Entries are append-only, newest entries last.
 - Added `scripts/summarize_mp11_structure_pass.py` plus tracked sanitized
   outputs summarizing aggregate outcomes, token counts, field-compliance
   issues, and supervisor spot-check results.
-- Observed that `qwen3-coder:latest` timed out on all four tested bundles,
-  while `qwen3-coder-next:latest` completed three of four and produced 80
-  parseable candidate structure records.
+- Observed that `qwen3-coder:latest` hit the first-run operator cutoff on all
+  four tested bundles, while `qwen3-coder-next:latest` completed three of four
+  and produced 80 parseable candidate structure records.
 - Recorded 72862 observed local-worker input tokens and 19893 output tokens at
   zero cash cost for completed `qwen3-coder-next:latest` runs.
+
+## 2026-07-04 - Ran P1 supervisor-token economics iteration
+
+- Measured the first paid-supervisor-token baseline for the
+  `appendix-a-opening-structure` bundle.
+- Produced a direct supervisor baseline with 26 derived structure records at a
+  measured cost of `$0.153581`.
+- Audited the existing `qwen3-coder-next:latest` worker output: 15 accepted
+  records, 6 repairable records, and 4 rejected records from 25 candidates.
+- Measured delegated audit cost at `$0.171488` plus zero-cash local worker
+  tokens, yielding a measured net loss of `$0.017907` for this small bundle and
+  full-audit protocol.
+- Measured tracked reporting/update overhead at `$0.613541`, identifying
+  supervisor-written reporting as the dominant cost to reduce or amortize.
+- Increased the structure-pass worker timeout default to 7200 seconds and
+  reclassified previous 360-second stops as operator cutoffs rather than
+  evidence of stalled or failed Ollama runs.

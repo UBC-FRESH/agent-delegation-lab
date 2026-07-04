@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-04T20:13:03+00:00",
+  "generated_utc": "2026-07-04T20:28:28+00:00",
   "source_id": "tfl6_mp11_202606_public_pdf",
   "source_sha256": "44591c1024254e36d8989df45a2b489a624d5669c5ae01a6ebfd961b50a7321b",
   "benchmark": "mp11_structure_pass_ab_iteration_1",
   "run_count": 8,
   "completed_run_count": 3,
-  "timeout_count": 5,
+  "operator_cutoff_count": 5,
   "candidate_record_count": 80,
   "format_issue_run_count": 3,
   "wrong_worker_model_label_count": 13,
@@ -18,11 +18,11 @@
   },
   "model_outcomes": {
     "qwen3-coder:latest": {
-      "timeout": 4
+      "operator_cutoff": 4
     },
     "qwen3-coder-next:latest": {
       "completed-parseable": 3,
-      "timeout": 1
+      "operator_cutoff": 1
     }
   },
   "bundles": [
@@ -33,7 +33,7 @@
           "model": "qwen3-coder:latest",
           "status": "blocked",
           "blocker": "session-idle-timeout",
-          "outcome": "timeout",
+          "outcome": "operator_cutoff",
           "record_count": 0,
           "object_type_counts": {},
           "page_min": null,
@@ -81,7 +81,7 @@
           "model": "qwen3-coder:latest",
           "status": "blocked",
           "blocker": "session-idle-timeout",
-          "outcome": "timeout",
+          "outcome": "operator_cutoff",
           "record_count": 0,
           "object_type_counts": {},
           "page_min": null,
@@ -129,7 +129,7 @@
           "model": "qwen3-coder:latest",
           "status": "blocked",
           "blocker": "session-idle-timeout",
-          "outcome": "timeout",
+          "outcome": "operator_cutoff",
           "record_count": 0,
           "object_type_counts": {},
           "page_min": null,
@@ -176,7 +176,7 @@
           "model": "qwen3-coder:latest",
           "status": "blocked",
           "blocker": "session-idle-timeout",
-          "outcome": "timeout",
+          "outcome": "operator_cutoff",
           "record_count": 0,
           "object_type_counts": {},
           "page_min": null,
@@ -194,7 +194,7 @@
           "model": "qwen3-coder-next:latest",
           "status": "blocked",
           "blocker": "session-idle-timeout",
-          "outcome": "timeout",
+          "outcome": "operator_cutoff",
           "record_count": 0,
           "object_type_counts": {},
           "page_min": null,
@@ -231,8 +231,8 @@
       }
     ],
     "caveats": [
-      "qwen3-coder:latest timed out on every tested bundle",
-      "qwen3-coder-next:latest timed out on the main plan bundle",
+      "qwen3-coder:latest hit the operator cutoff on every tested bundle",
+      "qwen3-coder-next:latest hit the operator cutoff on the main plan bundle",
       "one qwen3-coder-next run filled worker_model with gpt-4o-mini",
       "one qwen3-coder-next record had a malformed source_sha256",
       "qwen3-coder-next sometimes returned a JSON array instead of JSONL"

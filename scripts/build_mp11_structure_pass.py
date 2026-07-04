@@ -14,6 +14,7 @@ DEFAULT_MANIFEST = "benchmarks/mp11_document_metadata_index/chunk_manifest.json"
 DEFAULT_OUTPUT_DIR = "runtime/mp11_document_metadata_index/structure_pass"
 DEFAULT_AGENT_WORKBENCH = "../agent-workbench"
 DEFAULT_PYTHON = "../agent-workbench/.venv/Scripts/python.exe"
+DEFAULT_TIMEOUT_SECONDS = 7200
 MODELS = ["qwen3-coder:latest", "qwen3-coder-next:latest"]
 
 
@@ -39,6 +40,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, default=Path(DEFAULT_OUTPUT_DIR))
     parser.add_argument("--agent-workbench-root", type=Path, default=Path(DEFAULT_AGENT_WORKBENCH))
     parser.add_argument("--python-executable", type=Path, default=Path(DEFAULT_PYTHON))
+    parser.add_argument(
+        "--timeout-seconds",
+        type=int,
+        default=DEFAULT_TIMEOUT_SECONDS,
+        help=(
+            "Per-worker timeout. Document-grind experiments should use long "
+            "timeouts because local-worker wall time is cheap and premature "
+            "operator cutoff destroys economics evidence."
+        ),
+    )
     parser.add_argument("--force", action="store_true")
     return parser.parse_args()
 
@@ -88,7 +99,7 @@ def main() -> None:
             "allowed_patch_files": [],
             "models": MODELS,
             "repeats": 1,
-            "timeout_seconds": 360,
+            "timeout_seconds": args.timeout_seconds,
             "output_dir": output_dir.as_posix(),
             "probe_script": "scripts/copilot_sdk_ollama_probe.py",
             "python_executable": args.python_executable.resolve().as_posix(),

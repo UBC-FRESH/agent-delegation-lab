@@ -59,8 +59,12 @@ Planned tasks:
 - [ ] P1.5 Supervisor audit and economics comparison
   - [x] Sample worker output against source text for the structure-pass
         iteration.
-  - [ ] Record worker token counts, supervisor audit cost, failure modes, and
+  - [x] Record worker token counts, supervisor audit cost, failure modes, and
         whether the delegation shape looks profitable.
+  - [x] Reclassify first-run 360-second stops as operator cutoffs rather than
+        model-failure evidence.
+  - [ ] Run the next economics iteration with long worker timeouts and a
+        lower-cost audit protocol.
 
 Acceptance criteria:
 
@@ -69,3 +73,5 @@ Acceptance criteria:
 - Metadata index rows preserve page/component/source provenance.
 - Supervisor can audit a sample without rereading the full 475-page document.
 - Benchmark conclusion distinguishes output usefulness from token economics.
+- Benchmark timeout interpretation distinguishes operator cutoffs from actual
+  model stalls or failures.

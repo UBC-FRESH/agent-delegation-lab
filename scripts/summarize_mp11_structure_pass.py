@@ -31,8 +31,8 @@ def main() -> None:
             model_counts[run["model"]][run["outcome"]] += 1
             if run["status"] == "completed":
                 totals["completed_runs"] += 1
-            if run["outcome"] == "timeout":
-                totals["timeouts"] += 1
+            if run["outcome"] == "operator_cutoff":
+                totals["operator_cutoffs"] += 1
             totals["records"] += run["record_count"]
             totals["format_issue_runs"] += 1 if run["format_issue"] else 0
             totals["wrong_worker_model_labels"] += run["wrong_worker_model_labels"]
@@ -47,7 +47,7 @@ def main() -> None:
         "benchmark": "mp11_structure_pass_ab_iteration_1",
         "run_count": totals["runs"],
         "completed_run_count": totals["completed_runs"],
-        "timeout_count": totals["timeouts"],
+        "operator_cutoff_count": totals["operator_cutoffs"],
         "candidate_record_count": totals["records"],
         "format_issue_run_count": totals["format_issue_runs"],
         "wrong_worker_model_label_count": totals["wrong_worker_model_labels"],
@@ -79,8 +79,8 @@ def main() -> None:
                 },
             ],
             "caveats": [
-                "qwen3-coder:latest timed out on every tested bundle",
-                "qwen3-coder-next:latest timed out on the main plan bundle",
+                "qwen3-coder:latest hit the operator cutoff on every tested bundle",
+                "qwen3-coder-next:latest hit the operator cutoff on the main plan bundle",
                 "one qwen3-coder-next run filled worker_model with gpt-4o-mini",
                 "one qwen3-coder-next record had a malformed source_sha256",
                 "qwen3-coder-next sometimes returned a JSON array instead of JSONL",
@@ -191,7 +191,7 @@ def duplicate_count(values: Any) -> int:
 
 def classify_run(row: dict[str, Any], records: list[dict[str, Any]], parse_error: str) -> str:
     if row["blocker"] == "session-idle-timeout":
-        return "timeout"
+        return "operator_cutoff"
     if row["status"] != "completed":
         return row["blocker"] or "blocked"
     if parse_error:
@@ -212,7 +212,7 @@ def render_markdown(summary: dict[str, Any]) -> str:
         "",
         f"- run count: `{summary['run_count']}`",
         f"- completed runs: `{summary['completed_run_count']}`",
-        f"- timeouts: `{summary['timeout_count']}`",
+        f"- operator cutoffs: `{summary['operator_cutoff_count']}`",
         f"- candidate records parsed: `{summary['candidate_record_count']}`",
         f"- format-issue runs: `{summary['format_issue_run_count']}`",
         f"- wrong worker-model labels: `{summary['wrong_worker_model_label_count']}`",
@@ -280,9 +280,9 @@ def render_markdown(summary: dict[str, Any]) -> str:
             "",
             "`qwen3-coder-next:latest` is the only useful candidate from this run. It",
             "returned parseable records for three of four bundles and consumed large",
-            "zero-cash local-worker token volumes. `qwen3-coder:latest` timed out on",
-            "all four bundles and should not be used for this task shape without much",
-            "smaller tickets or a different timeout strategy.",
+            "zero-cash local-worker token volumes. The 360-second timeout used in this",
+            "first run should be treated as an operator cutoff, not as evidence that",
+            "the local Ollama runs stalled or failed.",
             "",
             "The next iteration should split tickets more finely, require strict JSONL",
             "again, and add automated validation for constants, worker_model, duplicate",

@@ -7,7 +7,7 @@ the MP11 document metadata-indexing benchmark.
 
 - run count: `8`
 - completed runs: `3`
-- timeouts: `5`
+- operator cutoffs: `5`
 - candidate records parsed: `80`
 - format-issue runs: `3`
 - wrong worker-model labels: `13`
@@ -17,22 +17,22 @@ the MP11 document metadata-indexing benchmark.
 
 | Model | Outcome | Count |
 | --- | --- | ---: |
-| `qwen3-coder:latest` | `timeout` | 4 |
+| `qwen3-coder:latest` | `operator_cutoff` | 4 |
 | `qwen3-coder-next:latest` | `completed-parseable` | 3 |
-| `qwen3-coder-next:latest` | `timeout` | 1 |
+| `qwen3-coder-next:latest` | `operator_cutoff` | 1 |
 
 ## Bundle Summary
 
 | Bundle | Model | Outcome | Records | Page Span | Input Tokens | Output Tokens | Caveats |
 | --- | --- | --- | ---: | --- | ---: | ---: | --- |
-| `appendix-a-late-structure` | `qwen3-coder:latest` | `timeout` | 0 | `` | 0 | 0 | no assistant message |
+| `appendix-a-late-structure` | `qwen3-coder:latest` | `operator_cutoff` | 0 | `` | 0 | 0 | no assistant message |
 | `appendix-a-late-structure` | `qwen3-coder-next:latest` | `completed-parseable` | 42 | `180-224` | 22391 | 11509 | 1 duplicate record ids |
-| `appendix-a-opening-structure` | `qwen3-coder:latest` | `timeout` | 0 | `` | 0 | 0 | no assistant message |
+| `appendix-a-opening-structure` | `qwen3-coder:latest` | `operator_cutoff` | 0 | `` | 0 | 0 | no assistant message |
 | `appendix-a-opening-structure` | `qwen3-coder-next:latest` | `completed-parseable` | 25 | `46-57` | 20708 | 5463 | 1 malformed source SHA records |
-| `appendix-b-opening-structure` | `qwen3-coder:latest` | `timeout` | 0 | `` | 0 | 0 | no assistant message |
+| `appendix-b-opening-structure` | `qwen3-coder:latest` | `operator_cutoff` | 0 | `` | 0 | 0 | no assistant message |
 | `appendix-b-opening-structure` | `qwen3-coder-next:latest` | `completed-parseable` | 13 | `230-250` | 29763 | 2921 | 13 wrong worker_model labels; 2 duplicate record ids |
-| `main-plan-structure` | `qwen3-coder:latest` | `timeout` | 0 | `` | 0 | 0 | no assistant message |
-| `main-plan-structure` | `qwen3-coder-next:latest` | `timeout` | 0 | `` | 0 | 0 | no assistant message |
+| `main-plan-structure` | `qwen3-coder:latest` | `operator_cutoff` | 0 | `` | 0 | 0 | no assistant message |
+| `main-plan-structure` | `qwen3-coder-next:latest` | `operator_cutoff` | 0 | `` | 0 | 0 | no assistant message |
 
 ## Supervisor Spot Check
 
@@ -45,9 +45,9 @@ promote without a stricter second-pass ticket.
 
 `qwen3-coder-next:latest` is the only useful candidate from this run. It
 returned parseable records for three of four bundles and consumed large
-zero-cash local-worker token volumes. `qwen3-coder:latest` timed out on
-all four bundles and should not be used for this task shape without much
-smaller tickets or a different timeout strategy.
+zero-cash local-worker token volumes. The 360-second timeout used in this
+first run should be treated as an operator cutoff, not as evidence that
+the local Ollama runs stalled or failed.
 
 The next iteration should split tickets more finely, require strict JSONL
 again, and add automated validation for constants, worker_model, duplicate
