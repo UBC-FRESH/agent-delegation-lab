@@ -29,3 +29,19 @@ Entries are append-only, newest entries last.
 - Recorded the first substrate statistics: 105811 extracted words, 723498
   extracted characters, and 3 effectively empty pages.
 - Opened draft PR #3 as the P1 review surface without close wording.
+
+## 2026-07-04 - Ran P1 MP11 structure-pass A/B iteration
+
+- Added `scripts/build_mp11_structure_pass.py` to generate ignored structure
+  pass worker tickets and eval manifests from the tracked chunk manifest plus
+  ignored runtime chunks.
+- Ran four structure-pass bundles against `qwen3-coder:latest` and
+  `qwen3-coder-next:latest` with one repeat per model and bundle.
+- Added `scripts/summarize_mp11_structure_pass.py` plus tracked sanitized
+  outputs summarizing aggregate outcomes, token counts, field-compliance
+  issues, and supervisor spot-check results.
+- Observed that `qwen3-coder:latest` timed out on all four tested bundles,
+  while `qwen3-coder-next:latest` completed three of four and produced 80
+  parseable candidate structure records.
+- Recorded 72862 observed local-worker input tokens and 19893 output tokens at
+  zero cash cost for completed `qwen3-coder-next:latest` runs.

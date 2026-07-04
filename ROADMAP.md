@@ -51,13 +51,14 @@ Planned tasks:
   - [x] Export PDF text into page chunks under ignored runtime paths.
   - [x] Create a tracked sanitized chunk-manifest contract.
 - [ ] P1.3 Worker structure pass
-  - [ ] Ask local workers to infer document structure from chunks.
-  - [ ] Produce candidate component, section, table, figure, and appendix maps.
+  - [x] Ask local workers to infer document structure from chunks.
+  - [x] Produce candidate component, section, table, figure, and appendix maps.
 - [ ] P1.4 Worker metadata extraction pass
   - [ ] Extract page-anchored metadata index records from chunks.
   - [ ] Emit JSONL or CSV candidate rows under ignored runtime paths.
 - [ ] P1.5 Supervisor audit and economics comparison
-  - [ ] Sample worker output against source text and existing FEMIC evidence.
+  - [x] Sample worker output against source text for the structure-pass
+        iteration.
   - [ ] Record worker token counts, supervisor audit cost, failure modes, and
         whether the delegation shape looks profitable.
 

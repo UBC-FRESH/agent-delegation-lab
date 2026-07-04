@@ -87,3 +87,18 @@ This is the first useful delegation substrate: workers can receive selected
 chunks or chunk bundles, while the supervisor can audit against stable page IDs,
 component ranges, text hashes, and runtime paths without committing raw source
 text.
+
+## Structure-Pass Iteration 1
+
+The first worker-backed structure pass is summarized in:
+
+`benchmarks/mp11_document_metadata_index/structure_pass_summary.json`
+
+The companion planning note is:
+
+`planning/phase1_mp11_structure_pass_iteration.md`
+
+This iteration ran four bounded page bundles against `qwen3-coder:latest` and
+`qwen3-coder-next:latest`. The tracked summary records aggregate outcomes,
+token counts, and validation caveats only. Raw tickets, raw worker outputs, SDK
+events, provider details, and extracted text remain ignored under `runtime/`.
