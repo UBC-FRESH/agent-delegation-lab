@@ -62,3 +62,18 @@ Entries are append-only, newest entries last.
 - Increased the structure-pass worker timeout default to 7200 seconds and
   reclassified previous 360-second stops as operator cutoffs rather than
   evidence of stalled or failed Ollama runs.
+
+## 2026-07-04 - Ran P1 MP11 scale-sequence iteration
+
+- Added a scale-sequence ticket builder for the MP11 structure-pass benchmark.
+- Ran `qwen3-coder-next:latest` on x2, x4, x8, and x16 page-window bundles
+  with 7200-second worker timeouts and no operator cutoffs.
+- Recorded structured, sanitized experiment observations under
+  `benchmarks/mp11_document_metadata_index/scale_sequence_01/`.
+- Observed that worker input tokens scaled with document size, but candidate
+  record yield did not scale monotonically: x4 and x16 returned valid JSONL
+  with severe under-extraction.
+- Measured the paid-supervisor scale-sequence span rollup at `$0.826415` for
+  setup, ticket build, worker orchestration, output summarization, and audit
+  interpretation, excluding separate Agent Workbench fixture implementation
+  cost.

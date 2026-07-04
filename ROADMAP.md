@@ -63,8 +63,12 @@ Planned tasks:
         whether the delegation shape looks profitable.
   - [x] Reclassify first-run 360-second stops as operator cutoffs rather than
         model-failure evidence.
-  - [ ] Run the next economics iteration with long worker timeouts and a
+  - [x] Run the next economics iteration with long worker timeouts and a
         lower-cost audit protocol.
+  - [x] Record a structured x2/x4/x8/x16 scale-sequence observation set for
+        future tuning and guardrail design.
+  - [ ] Allocate supervisor audit/repair cost per scale run before claiming
+        final benefit-cost ratios.
 
 Acceptance criteria:
 
