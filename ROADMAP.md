@@ -6,12 +6,12 @@ This roadmap tracks synthetic and real-document delegation benchmarks.
 
 | Phase | Title | Issue | Branch | Status |
 | --- | --- | --- | --- | --- |
-| P0 | Repository scaffold and benchmark boundaries | TBD | `main` | Active |
-| P1 | MP11 document metadata indexing benchmark | TBD | `feature/p1-mp11-document-index` | Planned |
+| P0 | Repository scaffold and benchmark boundaries | #1 | `main` | Complete |
+| P1 | MP11 document metadata indexing benchmark | #2 | `feature/p1-mp11-document-index` | Planned |
 
 ## Phase 0: Repository Scaffold And Benchmark Boundaries
 
-Status: active.
+Status: complete.
 
 Goal: create a public-safe benchmark lab for delegated agent experiments.
 
@@ -66,4 +66,3 @@ Acceptance criteria:
 - Metadata index rows preserve page/component/source provenance.
 - Supervisor can audit a sample without rereading the full 475-page document.
 - Benchmark conclusion distinguishes output usefulness from token economics.
-

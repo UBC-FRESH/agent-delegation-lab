@@ -10,3 +10,9 @@ Entries are append-only, newest entries last.
 - Established ignore rules so raw PDFs, raw text extracts, transcripts, runtime
   outputs, and provider credentials remain untracked.
 
+## 2026-07-04 - GitHub issue map initialized
+
+- Created P0 issue #1 for repository scaffold and benchmark boundaries.
+- Created P1 issue #2 for the MP11 document metadata indexing benchmark.
+- Updated the roadmap issue map so the benchmark lab has a concrete public
+  tracker before deeper delegation experiments begin.
