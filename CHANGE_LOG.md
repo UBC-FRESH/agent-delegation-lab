@@ -94,3 +94,15 @@ Entries are append-only, newest entries last.
 - Measured benchmark-operation supervisor overhead at `$0.632602`, which is
   `$0.596046` below the reused direct-supervisor baseline before source-level
   audit/repair allocation.
+
+## 2026-07-04 - Audited P1 fixed-x8 supervisor overhead
+
+- Added `planning/phase1_mp11_x8_bundle_overhead_audit.md`.
+- Broke the fixed-x8 sequence 02 supervisor overhead into span-level fresh
+  input, cached input, output, reasoning, and cash-cost components.
+- Identified `worker_output_summarize`, `worker_run_orchestration`, and
+  `github_hygiene` as the dominant cost centers that likely include
+  reducible paid-token burn.
+- Recorded the next optimization direction: quiet batch runners,
+  script-first summaries, batched GitHub hygiene, and shifting paid tokens
+  toward source-level audit/repair.
