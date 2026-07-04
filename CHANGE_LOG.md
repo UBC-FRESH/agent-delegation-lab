@@ -16,3 +16,15 @@ Entries are append-only, newest entries last.
 - Created P1 issue #2 for the MP11 document metadata indexing benchmark.
 - Updated the roadmap issue map so the benchmark lab has a concrete public
   tracker before deeper delegation experiments begin.
+
+## 2026-07-04 - Started P1 MP11 chunk substrate
+
+- Opened `feature/p1-mp11-document-index`.
+- Added `scripts/extract_mp11_chunks.py` to export MP11 page text chunks into
+  ignored runtime space and write a sanitized tracked manifest.
+- Extracted 475 MP11 page chunks from the verified public PDF source.
+- Added `benchmarks/mp11_document_metadata_index/chunk_manifest.json` with
+  page IDs, component ranges, text hashes, word counts, character counts, and
+  runtime paths without committing raw text.
+- Recorded the first substrate statistics: 105811 extracted words, 723498
+  extracted characters, and 3 effectively empty pages.
