@@ -7,7 +7,7 @@ This roadmap tracks synthetic and real-document delegation benchmarks.
 | Phase | Title | Issue | Branch | Status |
 | --- | --- | --- | --- | --- |
 | P0 | Repository scaffold and benchmark boundaries | #1 | `main` | Complete |
-| P1 | MP11 document metadata indexing benchmark | #2 | `feature/p1-mp11-document-index` | Planned |
+| P1 | MP11 document metadata indexing benchmark | #2 | `feature/p1-mp11-document-index` | Active |
 
 ## Phase 0: Repository Scaffold And Benchmark Boundaries
 
@@ -26,7 +26,9 @@ Tasks:
 
 ## Phase 1: MP11 Document Metadata Indexing Benchmark
 
-Status: planned.
+Status: active.
+
+Draft PR: #3
 
 Goal: test whether local Ollama worker agents can grind through a long,
 complex PDF-derived text corpus and produce a useful structured metadata index
@@ -43,21 +45,32 @@ Target source:
 Planned tasks:
 
 - [ ] P1.1 Source registration and extraction boundary
-  - [ ] Record public source metadata and local source hints.
-  - [ ] Keep PDF and extracted text untracked.
+  - [x] Record public source metadata and local source hints.
+  - [x] Keep PDF and extracted text untracked.
 - [ ] P1.2 Chunked text export and manifest
-  - [ ] Export PDF text into page or section chunks under ignored runtime paths.
-  - [ ] Create a tracked sanitized chunk-manifest contract.
+  - [x] Export PDF text into page chunks under ignored runtime paths.
+  - [x] Create a tracked sanitized chunk-manifest contract.
 - [ ] P1.3 Worker structure pass
-  - [ ] Ask local workers to infer document structure from chunks.
-  - [ ] Produce candidate component, section, table, figure, and appendix maps.
+  - [x] Ask local workers to infer document structure from chunks.
+  - [x] Produce candidate component, section, table, figure, and appendix maps.
 - [ ] P1.4 Worker metadata extraction pass
   - [ ] Extract page-anchored metadata index records from chunks.
   - [ ] Emit JSONL or CSV candidate rows under ignored runtime paths.
 - [ ] P1.5 Supervisor audit and economics comparison
-  - [ ] Sample worker output against source text and existing FEMIC evidence.
-  - [ ] Record worker token counts, supervisor audit cost, failure modes, and
+  - [x] Sample worker output against source text for the structure-pass
+        iteration.
+  - [x] Record worker token counts, supervisor audit cost, failure modes, and
         whether the delegation shape looks profitable.
+  - [x] Reclassify first-run 360-second stops as operator cutoffs rather than
+        model-failure evidence.
+  - [x] Run the next economics iteration with long worker timeouts and a
+        lower-cost audit protocol.
+  - [x] Record a structured x2/x4/x8/x16 scale-sequence observation set for
+        future tuning and guardrail design.
+  - [x] Run fixed-x8 bundled packaging tests with `qwen3-coder-next:latest`
+        and `gpt-oss:20b`.
+  - [ ] Allocate supervisor audit/repair cost per scale run before claiming
+        final benefit-cost ratios.
 
 Acceptance criteria:
 
@@ -66,3 +79,5 @@ Acceptance criteria:
 - Metadata index rows preserve page/component/source provenance.
 - Supervisor can audit a sample without rereading the full 475-page document.
 - Benchmark conclusion distinguishes output usefulness from token economics.
+- Benchmark timeout interpretation distinguishes operator cutoffs from actual
+  model stalls or failures.

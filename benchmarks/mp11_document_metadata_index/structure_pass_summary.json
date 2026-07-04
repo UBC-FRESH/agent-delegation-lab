@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-07-04T20:28:28+00:00",
+  "source_id": "tfl6_mp11_202606_public_pdf",
+  "source_sha256": "44591c1024254e36d8989df45a2b489a624d5669c5ae01a6ebfd961b50a7321b",
+  "benchmark": "mp11_structure_pass_ab_iteration_1",
+  "run_count": 8,
+  "completed_run_count": 3,
+  "operator_cutoff_count": 5,
+  "candidate_record_count": 80,
+  "format_issue_run_count": 3,
+  "wrong_worker_model_label_count": 13,
+  "observed_worker_tokens": {
+    "input_tokens": 72862,
+    "output_tokens": 19893,
+    "cash_cost": 0,
+    "note": "Local Ollama worker tokens only; supervisor-token accounting not included."
+  },
+  "model_outcomes": {
+    "qwen3-coder:latest": {
+      "operator_cutoff": 4
+    },
+    "qwen3-coder-next:latest": {
+      "completed-parseable": 3,
+      "operator_cutoff": 1
+    }
+  },
+  "bundles": [
+    {
+      "bundle_id": "appendix-a-late-structure",
+      "runs": [
+        {
+          "model": "qwen3-coder:latest",
+          "status": "blocked",
+          "blocker": "session-idle-timeout",
+          "outcome": "operator_cutoff",
+          "record_count": 0,
+          "object_type_counts": {},
+          "page_min": null,
+          "page_max": null,
+          "parse_error": "no assistant message",
+          "format_issue": false,
+          "output_shape": "none",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 0,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        {
+          "model": "qwen3-coder-next:latest",
+          "status": "completed",
+          "blocker": "",
+          "outcome": "completed-parseable",
+          "record_count": 42,
+          "object_type_counts": {
+            "acronym": 3,
+            "assumption": 8,
+            "claim": 2,
+            "cross_reference": 7,
+            "figure": 8,
+            "table": 14
+          },
+          "page_min": 180,
+          "page_max": 224,
+          "parse_error": "",
+          "format_issue": true,
+          "output_shape": "json_array",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 1,
+          "input_tokens": 22391,
+          "output_tokens": 11509
+        }
+      ]
+    },
+    {
+      "bundle_id": "appendix-a-opening-structure",
+      "runs": [
+        {
+          "model": "qwen3-coder:latest",
+          "status": "blocked",
+          "blocker": "session-idle-timeout",
+          "outcome": "operator_cutoff",
+          "record_count": 0,
+          "object_type_counts": {},
+          "page_min": null,
+          "page_max": null,
+          "parse_error": "no assistant message",
+          "format_issue": false,
+          "output_shape": "none",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 0,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        {
+          "model": "qwen3-coder-next:latest",
+          "status": "completed",
+          "blocker": "",
+          "outcome": "completed-parseable",
+          "record_count": 25,
+          "object_type_counts": {
+            "acronym": 10,
+            "assumption": 4,
+            "claim": 2,
+            "component_boundary": 3,
+            "heading": 4,
+            "other": 2
+          },
+          "page_min": 46,
+          "page_max": 57,
+          "parse_error": "",
+          "format_issue": true,
+          "output_shape": "jsonl",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 1,
+          "duplicate_record_id_count": 0,
+          "input_tokens": 20708,
+          "output_tokens": 5463
+        }
+      ]
+    },
+    {
+      "bundle_id": "appendix-b-opening-structure",
+      "runs": [
+        {
+          "model": "qwen3-coder:latest",
+          "status": "blocked",
+          "blocker": "session-idle-timeout",
+          "outcome": "operator_cutoff",
+          "record_count": 0,
+          "object_type_counts": {},
+          "page_min": null,
+          "page_max": null,
+          "parse_error": "no assistant message",
+          "format_issue": false,
+          "output_shape": "none",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 0,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        {
+          "model": "qwen3-coder-next:latest",
+          "status": "completed",
+          "blocker": "",
+          "outcome": "completed-parseable",
+          "record_count": 13,
+          "object_type_counts": {
+            "acronym": 1,
+            "assumption": 1,
+            "component_boundary": 3,
+            "cross_reference": 2,
+            "heading": 6
+          },
+          "page_min": 230,
+          "page_max": 250,
+          "parse_error": "",
+          "format_issue": true,
+          "output_shape": "jsonl",
+          "wrong_worker_model_labels": 13,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 2,
+          "input_tokens": 29763,
+          "output_tokens": 2921
+        }
+      ]
+    },
+    {
+      "bundle_id": "main-plan-structure",
+      "runs": [
+        {
+          "model": "qwen3-coder:latest",
+          "status": "blocked",
+          "blocker": "session-idle-timeout",
+          "outcome": "operator_cutoff",
+          "record_count": 0,
+          "object_type_counts": {},
+          "page_min": null,
+          "page_max": null,
+          "parse_error": "no assistant message",
+          "format_issue": false,
+          "output_shape": "none",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 0,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        {
+          "model": "qwen3-coder-next:latest",
+          "status": "blocked",
+          "blocker": "session-idle-timeout",
+          "outcome": "operator_cutoff",
+          "record_count": 0,
+          "object_type_counts": {},
+          "page_min": null,
+          "page_max": null,
+          "parse_error": "no assistant message",
+          "format_issue": false,
+          "output_shape": "none",
+          "wrong_worker_model_labels": 0,
+          "malformed_source_sha256_records": 0,
+          "duplicate_record_id_count": 0,
+          "input_tokens": null,
+          "output_tokens": null
+        }
+      ]
+    }
+  ],
+  "supervisor_spot_check": {
+    "status": "sample_grounded_with_caveats",
+    "samples_checked": [
+      {
+        "bundle_id": "appendix-a-opening-structure",
+        "page": 46,
+        "result": "component boundary matched the Appendix A title-page chunk"
+      },
+      {
+        "bundle_id": "appendix-a-late-structure",
+        "page": 180,
+        "result": "table and ROPE-test figure records matched the page text"
+      },
+      {
+        "bundle_id": "appendix-b-opening-structure",
+        "page": 247,
+        "result": "section 1 and section 1.1 heading records matched the page text"
+      }
+    ],
+    "caveats": [
+      "qwen3-coder:latest hit the operator cutoff on every tested bundle",
+      "qwen3-coder-next:latest hit the operator cutoff on the main plan bundle",
+      "one qwen3-coder-next run filled worker_model with gpt-4o-mini",
+      "one qwen3-coder-next record had a malformed source_sha256",
+      "qwen3-coder-next sometimes returned a JSON array instead of JSONL"
+    ]
+  }
+}

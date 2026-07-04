@@ -1,0 +1,78 @@
+{
+  "record_id": "mp11-scale-x16-qwen3-coder-next-run01",
+  "schema_version": 1,
+  "generated_utc": "2026-07-04T20:46:39Z",
+  "experiment": {
+    "experiment_id": "mp11-scale-x16-run01",
+    "series_id": "mp11-document-structure-scale-sequence-01",
+    "project": "agent-delegation-lab",
+    "phase": "p1"
+  },
+  "task": {
+    "task_id": "mp11-scale-x16",
+    "task_family": "long-document-structure-pass",
+    "scale_factor": 16,
+    "input_pages": 192,
+    "input_words": 39414,
+    "input_characters": 269999
+  },
+  "model": {
+    "model_id": "qwen3-coder-next:latest",
+    "provider": "local-ollama",
+    "cash_cost_per_token_usd": 0
+  },
+  "protocol": {
+    "authority_level": "L0",
+    "timeout_seconds": 7200,
+    "audit_strategy": "not-yet-audited",
+    "ticket_template": "mp11-structure-scale-jsonl"
+  },
+  "outcome": {
+    "status": "completed-parseable",
+    "records_produced": 6,
+    "accepted_records": 0,
+    "repairable_records": 0,
+    "rejected_records": 0,
+    "needs_review_records": 6,
+    "object_type_counts": {
+      "appendix": 1,
+      "component_boundary": 2,
+      "heading": 2,
+      "other": 1
+    },
+    "output_shape": "jsonl",
+    "parse_error": "",
+    "scale_behavior": "large-context-under-extraction"
+  },
+  "economics": {
+    "economics_status": "worker-only-scale-signal",
+    "worker_input_tokens": 91709,
+    "worker_output_tokens": 1446,
+    "worker_cost_usd": 0,
+    "supervisor_cost_usd": 0.0,
+    "direct_baseline_cost_usd": 2.457296,
+    "direct_baseline_cost_source": "extrapolated from the measured 12-page direct-supervisor baseline; not a paid baseline rerun for this scale series",
+    "net_savings_usd": 2.457296,
+    "net_savings_status": "not-claimed-until-supervisor-audit-cost-is-added",
+    "derived_metrics": {
+      "records_per_1000_worker_input_tokens": 0.065424,
+      "records_per_1000_words": 0.15223,
+      "worker_input_tokens_per_word": 2.326813,
+      "worker_output_tokens_per_record": 241.0,
+      "records_per_page": 0.03125
+    }
+  },
+  "links": {
+    "runtime_eval_summary": "runtime\\mp11_document_metadata_index\\scale_sequence_01\\mp11-scale-x16\\eval\\summary.json",
+    "runtime_result_file": "runtime\\mp11_document_metadata_index\\scale_sequence_01\\mp11-scale-x16\\eval\\qwen3_coder_next_latest_run01.md",
+    "source_summary": "benchmarks\\mp11_document_metadata_index\\scale_sequence_01\\summary.json"
+  },
+  "public_safety": {
+    "raw_inputs_excluded": true,
+    "raw_outputs_excluded": true,
+    "raw_traces_excluded": true,
+    "provider_urls_excluded": true,
+    "headers_excluded": true,
+    "personal_paths_excluded": true
+  }
+}

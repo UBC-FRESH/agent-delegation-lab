@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "benchmark_id": "mp11_p1_iteration_02",
+  "bundle_id": "appendix-a-opening-structure",
+  "source_id": "tfl6_mp11_202606_public_pdf",
+  "source_sha256": "44591c1024254e36d8989df45a2b489a624d5669c5ae01a6ebfd961b50a7321b",
+  "page_span": {
+    "start_pdf_page": 46,
+    "end_pdf_page": 57
+  },
+  "pricing": {
+    "supervisor_input_price_per_1m_usd": 1.75,
+    "supervisor_cached_input_price_per_1m_usd": 0.175,
+    "supervisor_output_price_per_1m_usd": 14.0,
+    "worker_input_price_per_1m_usd": 0.0,
+    "worker_output_price_per_1m_usd": 0.0
+  },
+  "direct_supervisor_baseline": {
+    "records_produced": 26,
+    "fresh_input_tokens": 4343,
+    "cached_input_tokens": 445056,
+    "output_tokens": 4376,
+    "reasoning_output_tokens": 488,
+    "cost_usd": 0.153581,
+    "cost_per_record_usd": 0.005907
+  },
+  "delegated_lane": {
+    "worker_model": "qwen3-coder-next:latest",
+    "worker_records": 25,
+    "worker_input_tokens": 20708,
+    "worker_output_tokens": 5463,
+    "worker_cost_usd": 0.0,
+    "audit_fresh_input_tokens": 9246,
+    "audit_cached_input_tokens": 630272,
+    "audit_output_tokens": 2568,
+    "audit_reasoning_output_tokens": 647,
+    "audit_cost_usd": 0.171488,
+    "accepted_records": 15,
+    "repairable_records": 6,
+    "rejected_records": 4,
+    "needs_review_records": 0,
+    "accepted_or_repairable_records": 21,
+    "accepted_or_repairable_fraction": 0.84,
+    "cost_per_accepted_or_repairable_record_usd": 0.008166
+  },
+  "comparison": {
+    "delegated_cost_usd": 0.171488,
+    "direct_cost_usd": 0.153581,
+    "net_savings_usd": -0.017907,
+    "winner": "direct_supervisor_baseline",
+    "interpretation": "At this 12-page bundle size and full-audit protocol, delegation did not reduce paid supervisor token cost. The worker output was mostly useful, but supervisor audit cost exceeded the direct baseline cost."
+  },
+  "setup_overhead": {
+    "fresh_input_tokens": 89054,
+    "cached_input_tokens": 305792,
+    "output_tokens": 952,
+    "reasoning_output_tokens": 273,
+    "cost_usd": 0.226508,
+    "note": "Setup overhead is reported separately because it includes benchmark orientation and should be amortized over repeated runs rather than assigned only to this bundle."
+  },
+  "tracked_update_overhead": {
+    "fresh_input_tokens": 17419,
+    "cached_input_tokens": 2746880,
+    "output_tokens": 6337,
+    "reasoning_output_tokens": 974,
+    "cost_usd": 0.613541,
+    "note": "Tracked reporting and planning updates are measured separately from lane-local baseline/audit costs. This overhead is currently the dominant paid-supervisor cost and must be reduced or amortized for the workflow to win."
+  },
+  "next_protocol_adjustments": [
+    "Use long worker timeouts for document-grind runs; local-worker wall time is cheap, and premature operator cutoffs destroy benchmark evidence.",
+    "Use larger bundles where direct reading cost scales faster than audit sampling cost.",
+    "Audit by stratified sample plus schema checks instead of full record-by-record review when the acceptance target allows it.",
+    "Ask workers to produce fewer, higher-value structure records rather than many acronym expansions from acknowledgement pages.",
+    "Retain qwen3-coder-next as the candidate worker for this task class until long-timeout repeats prove whether qwen3-coder:latest is truly unsuitable."
+  ],
+  "public_safety": {
+    "raw_pdf_text_excluded": true,
+    "raw_worker_output_excluded": true,
+    "raw_codex_session_paths_excluded": true,
+    "provider_urls_excluded": true,
+    "headers_excluded": true
+  }
+}
